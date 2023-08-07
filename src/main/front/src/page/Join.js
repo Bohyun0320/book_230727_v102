@@ -17,8 +17,9 @@ const Join = ()=>{
         console.log("button click! : "+email+", "+pw);
         fetch('/user/joinProc',{
             method:'POST',
+            headers: { 'Content-Type': 'application/json' },
             body : JSON.stringify({
-                email : email, pw: pw
+                "email" : email, "pw": pw
             })
         })
             .then(response=>response.text())
@@ -28,7 +29,7 @@ const Join = ()=>{
     }
 
     useEffect(()=>{
-        fetch('/join')
+        fetch('/user/join')
             .then(response=>response.text())
             .then(message=>{
                 setMessage(message);

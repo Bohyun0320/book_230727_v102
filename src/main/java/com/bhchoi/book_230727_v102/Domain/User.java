@@ -19,9 +19,8 @@ public class User {
     @Column(name= "user_id")
     private Integer userId;
 
-    @ManyToOne
     @JoinColumn(name="role_id")
-    private Role roleId;
+    private Integer roleId;
 
     @Column(name="email")
     private String email;
@@ -45,7 +44,7 @@ public class User {
     private Date registerDate;
 
     @Builder
-    public User(Integer userId, Role roleId, String email, String password, String name, String birthY, String birthM, String birthD, Date registerDate) {
+    public User(Integer userId, Integer roleId, String email, String password, String name, String birthY, String birthM, String birthD, Date registerDate) {
         this.userId = userId;
         this.roleId = roleId;
         this.email = email;

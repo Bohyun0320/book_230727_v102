@@ -17,7 +17,7 @@ import java.util.Date;
 public class UserDto {
 
     private Integer userId;
-    private Role roleId;
+    private Integer roleId;
     private String email;
     private String password;
     private String name;
@@ -26,9 +26,14 @@ public class UserDto {
     private String birthD;
     private Date registerDate;
 
+    public UserDto(String email, String encPassword, Integer roleId) {
+        this.email = email;
+        this.password = encPassword;
+        this.roleId = roleId;
+    }
+
     public User toEntity(){
         User build = User.builder()
-                .userId(userId)
                 .roleId(roleId)
                 .email(email)
                 .password(password)
@@ -42,8 +47,7 @@ public class UserDto {
     }
 
     @Builder
-    public UserDto(Integer userId, Role roleId, String email, String password, String name, String birthY, String birthM, String birthD, Date registerDate) {
-        this.userId = userId;
+    public UserDto(Integer roleId, String email, String password, String name, String birthY, String birthM, String birthD, Date registerDate) {
         this.roleId = roleId;
         this.email = email;
         this.password = password;
