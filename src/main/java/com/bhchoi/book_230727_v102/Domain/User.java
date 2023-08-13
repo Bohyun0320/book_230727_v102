@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Getter
@@ -41,10 +42,10 @@ public class User {
     private String birthD;
 
     @Column(name="register_date")
-    private Date registerDate;
+    private LocalDateTime registerDate;
 
     @Builder
-    public User(Integer userId, Integer roleId, String email, String password, String name, String birthY, String birthM, String birthD, Date registerDate) {
+    public User(Integer userId, Integer roleId, String email, String password, String name, String birthY, String birthM, String birthD, LocalDateTime registerDate) {
         this.userId = userId;
         this.roleId = roleId;
         this.email = email;

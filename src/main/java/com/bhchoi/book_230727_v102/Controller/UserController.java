@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Map;
 
 @RestController
@@ -17,11 +19,16 @@ public class UserController {
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     @RequestMapping("/user/joinProc")
     public String test(@RequestBody Map<String, String> jsonData){
+        Integer roleId = 1;
         String email = jsonData.get("email");
         String rawPassword = jsonData.get("pw");
         String encPassword = bCryptPasswordEncoder.encode(rawPassword);
-        System.out.println(email+", "+encPassword);
-        UserDto userDto = new UserDto(email, encPassword,1);
+        String name = jsonData.get("name");
+        String birthY = jsonData.get("birthY");
+        String birthM = jsonData.get("birthM");
+        String birthD = jsonData.get("birthD");
+        LocalDateTime nowDate = LocalDateTime.now();
+        UserDto userDto = new UserDto(roleId, email, encPassword, name,birthY, birthM, birthD, nowDate);
         userService.insert(userDto);
         return "test";
     }

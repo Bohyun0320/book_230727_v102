@@ -8,6 +8,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Getter
@@ -24,13 +25,8 @@ public class UserDto {
     private String birthY;
     private String birthM;
     private String birthD;
-    private Date registerDate;
+    private LocalDateTime registerDate;
 
-    public UserDto(String email, String encPassword, Integer roleId) {
-        this.email = email;
-        this.password = encPassword;
-        this.roleId = roleId;
-    }
 
     public User toEntity(){
         User build = User.builder()
@@ -47,7 +43,7 @@ public class UserDto {
     }
 
     @Builder
-    public UserDto(Integer roleId, String email, String password, String name, String birthY, String birthM, String birthD, Date registerDate) {
+    public UserDto(Integer roleId, String email, String password, String name, String birthY, String birthM, String birthD, LocalDateTime registerDate) {
         this.roleId = roleId;
         this.email = email;
         this.password = password;

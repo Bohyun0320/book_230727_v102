@@ -1,4 +1,6 @@
 import {useEffect, useState} from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const Home = ()=>{
     const [message, setMessage] = useState("");
@@ -11,10 +13,14 @@ const Home = ()=>{
     },[]);
 
     return (
-        <div>
-            홈 페이지 입니다.
-            <div>{message}</div>
-        </div>
+        <>
+            <Header/>
+            <div>
+                홈 페이지 입니다.
+                <div>{message}</div>
+            </div>
+            <Footer/>
+        </>
     );
 }
 

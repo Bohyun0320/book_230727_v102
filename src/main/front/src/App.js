@@ -11,9 +11,9 @@ const App = ()=>{
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home/>}/>
-            <Route path="/user/login" element={<Login/>}/>
-              <Route path="/user/join" element={<Join/>}/>
-              <Route path="/main" element={<Main/>}/>
+            <Route path="/user/login" element={<Login/>}/> {/* 로그인 */}
+            <Route path="/user/join" element={<Join/>}/> {/* 회원가입 페이지 */}
+            <Route path="/main" element={<Main/>}/>
           </Routes>
         </BrowserRouter>
       </div>

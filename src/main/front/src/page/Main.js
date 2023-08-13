@@ -1,8 +1,15 @@
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+
 const Main = ()=>{
     return (
-        <div>
-            메인 페이지 입니다.
-        </div>
+        <>
+            <Header/>
+            <div>
+                메인 페이지 입니다.
+            </div>
+            <Footer/>
+        </>
     );
 }
 
